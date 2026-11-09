@@ -4,13 +4,13 @@ export const W = 1000;
 export const H = 680;
 export const FONT = BODY_STACK;
 export const DISPLAY = DISPLAY_STACK;
-export const GREEN = "#33ff33";
-export const CYAN = "#9dff8f";
-export const TEXT = "#58ff58";
-export const MUTED = "#2fbf3f";
-export const DIM = "#1a7a2e";
-export const LINE = "#0d4a1c";
-export const BG = "#020402";
+export const GREEN = "#4dff73";
+export const CYAN = "#7ce7ff";
+export const TEXT = "#c9f5d4";
+export const MUTED = "#7fa88b";
+export const DIM = "#547260";
+export const LINE = "#1c3a28";
+export const BG = "#050807";
 
 export const esc = (s) =>
   String(s)

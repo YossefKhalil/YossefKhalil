@@ -8,18 +8,16 @@ import { fileURLToPath } from "node:url";
 
 import { windowTop, windowBottom } from "./lib/chrome.mjs";
 import { heroPane } from "./lib/hero-pane.mjs";
-import { workPane } from "./lib/work-pane.mjs";
 import { activityPane } from "./lib/activity-pane.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const data = JSON.parse(await readFile(resolve(root, "data/contributions.json"), "utf8"));
-const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const [year, month, day] = data.updatedAt.split("-");
 const stamp = `${day} ${months[Number(month) - 1]} ${year}`;
 
 const svg = `${windowTop(stamp)}
 ${heroPane()}
-${workPane()}
 ${activityPane(data)}
 ${windowBottom()}`;
 

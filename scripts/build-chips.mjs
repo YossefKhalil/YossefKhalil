@@ -47,9 +47,9 @@ for (const [i, { file, index, label }] of projects.entries()) {
   ${frame(w, h, 0.12 + i * 0.08)}
   <g opacity="0">
     <animate attributeName="opacity" from="0" to="1" begin="${(0.2 + i * 0.08).toFixed(2)}s" dur="0.3s" fill="freeze"/>
-    <text x="14" y="16" font-family="${FONT}" font-size="7" fill="${DIM}" letter-spacing="1.2">${index}</text>
-    <text x="14" y="32" font-family="${FONT}" font-size="14" font-weight="bold" fill="${CYAN}">${esc(label)}</text>
-    <text x="176" y="29" font-family="${FONT}" font-size="13" fill="${GREEN}" text-anchor="end">↗</text>
+    <text x="12" y="26" font-family="${FONT}" font-size="10" fill="${GREEN}" opacity="0.55">&gt;</text>
+    <text x="24" y="26" font-family="${FONT}" font-size="13" font-weight="bold" fill="${CYAN}">${esc(label)}</text>
+    <text x="176" y="26" font-family="${FONT}" font-size="12" fill="${GREEN}" opacity="0.7" text-anchor="end">↗</text>
   </g>
 </svg>
 `;

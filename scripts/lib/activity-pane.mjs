@@ -1,12 +1,12 @@
-import { GREEN, CYAN, DIM, LINE, FONT, typed, fade } from "./core.mjs";
+import { GREEN, CYAN, MUTED, DIM, LINE, FONT, typed, fade } from "./core.mjs";
 
 const X = 26;
-const FRAME = { x: 24, y: 448, w: 952, h: 200 };
-const GRID = { x: 76, y: 480, cell: 13, gap: 3 };
+const FRAME = { x: 24, y: 462, w: 952, h: 184 };
+const GRID = { x: 76, y: 492, cell: 13, gap: 3 };
 const PITCH = GRID.cell + GRID.gap;
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const COLORS = ["#0c130e", "#0e3b1d", "#146b30", "#1cb84a", GREEN];
+const COLORS = ["#0b120d", "#12301c", "#1c5a2c", "#2a9a45", GREEN];
 
 const level = (count) => {
   if (count === 0) return 0;
@@ -45,11 +45,11 @@ export function activityPane(data) {
           const x = GRID.x + wi * PITCH;
           const y = GRID.y + di * PITCH;
           const lv = level(day.count);
-          const begin = (3.6 + wi * 0.009 + di * 0.005).toFixed(3);
-          const stroke = lv === 4 ? GREEN : lv === 0 ? "#27452f" : "#d9ffe4";
-          const strokeOpacity = lv === 4 ? 0.38 : lv === 0 ? 0.55 : 0.06;
+          const begin = (2.4 + wi * 0.007 + di * 0.004).toFixed(3);
+          const stroke = lv === 4 ? GREEN : lv === 0 ? LINE : "#d9ffe4";
+          const strokeOpacity = lv === 4 ? 0.4 : lv === 0 ? 0.7 : 0.07;
           return `<rect x="${x}" y="${y}" width="${GRID.cell}" height="${GRID.cell}" rx="2" fill="${COLORS[lv]}" stroke="${stroke}" stroke-opacity="${strokeOpacity}" opacity="0">
-            <animate attributeName="opacity" from="0" to="1" begin="${begin}s" dur="0.26s" fill="freeze"/>
+            <animate attributeName="opacity" from="0" to="1" begin="${begin}s" dur="0.22s" fill="freeze"/>
           </rect>`;
         })
         .join(""),
@@ -67,71 +67,73 @@ export function activityPane(data) {
   ]
     .map(
       ({ row, text }) =>
-        `<text x="${GRID.x - 10}" y="${GRID.y + row * PITCH + 9.5}" font-family="${FONT}" font-size="7.5" fill="${DIM}" text-anchor="end">${text}</text>`,
+        `<text x="${GRID.x - 10}" y="${GRID.y + row * PITCH + 9.5}" font-family="${FONT}" font-size="9" fill="${DIM}" text-anchor="end">${text}</text>`,
     )
     .join("");
 
   const legend = [0, 1, 2, 3, 4]
     .map(
       (lv, index) =>
-        `<rect x="${868 + index * 11}" y="622" width="8" height="8" rx="1.5" fill="${COLORS[lv]}" stroke="${lv === 4 ? GREEN : lv === 0 ? "#27452f" : "#d9ffe4"}" stroke-opacity="${lv === 4 ? 0.38 : lv === 0 ? 0.55 : 0.06}"/>`,
+        `<rect x="${856 + index * 18}" y="621" width="14" height="14" rx="2" fill="${COLORS[lv]}" stroke="${lv === 4 ? GREEN : lv === 0 ? LINE : "#d9ffe4"}" stroke-opacity="${lv === 4 ? 0.4 : lv === 0 ? 0.7 : 0.07}"/>`,
     )
     .join("");
 
   const prefix = "yossef@dev:~$ ";
-  const char = 11.5 * 0.6;
-  const promptBegin = 3.35;
-  const typedPrompt = `${typed(prefix, { x: X, y: 394, size: 11.5, fill: DIM, begin: promptBegin, step: 0.014 })}
-    ${typed("gh activity --last-year", { x: X + prefix.length * char, y: 394, size: 11.5, fill: GREEN, begin: promptBegin + prefix.length * 0.014, step: 0.014 })}`;
+  const char = 8.4;
+  const promptBegin = 2.2;
+  const typedPrompt = `${typed(prefix, { x: X, y: 396, size: 14, fill: DIM, begin: promptBegin, step: 0.014 })}
+    ${typed("gh activity --last-year", { x: X + prefix.length * char, y: 396, size: 14, fill: GREEN, begin: promptBegin + prefix.length * 0.014, step: 0.014 })}`;
 
   return `
-    <g opacity="0">
-      <animate attributeName="opacity" from="0" to="1" begin="3.2s" dur="0.45s" fill="freeze"/>
-
+    <g>
       ${typedPrompt}
 
-      <g opacity="0">
-        <animate attributeName="opacity" from="0" to="1" begin="3.8s" dur="0.4s" fill="freeze"/>
-        <text x="900" y="420" font-family="${FONT}" font-size="27" font-weight="bold" fill="${GREEN}" text-anchor="end">${data.totalContributions}</text>
-        <text x="900" y="434" font-family="${FONT}" font-size="7" fill="${DIM}" text-anchor="end" letter-spacing="1.2">CONTRIBUTIONS</text>
-        <line x1="916" y1="398" x2="916" y2="435" stroke="${GREEN}" stroke-opacity="0.14"/>
-        <text x="962" y="420" font-family="${FONT}" font-size="21" font-weight="bold" fill="${GREEN}" text-anchor="end">${streak}</text>
-        <text x="962" y="434" font-family="${FONT}" font-size="7" fill="${DIM}" text-anchor="end" letter-spacing="1.2">DAY STREAK</text>
-      </g>
+      ${fade(
+        `<g font-family="${FONT}">
+          <text x="900" y="428" font-size="32" font-weight="bold" fill="${GREEN}" text-anchor="end">${data.totalContributions}</text>
+          <text x="900" y="444" font-size="10" fill="${MUTED}" text-anchor="end" letter-spacing="1.2">CONTRIBUTIONS</text>
+          <line x1="918" y1="406" x2="918" y2="448" stroke="${GREEN}" stroke-opacity="0.18"/>
+          <text x="962" y="428" font-size="24" font-weight="bold" fill="${GREEN}" text-anchor="end">${streak}</text>
+          <text x="962" y="444" font-size="10" fill="${MUTED}" text-anchor="end" letter-spacing="1.2">STREAK</text>
+        </g>`,
+        2.8,
+      )}
 
       <rect x="${FRAME.x + 0.5}" y="${FRAME.y + 0.5}" width="${FRAME.w - 1}" height="${FRAME.h - 1}" rx="3" fill="#060906" stroke="${LINE}"/>
       <line x1="${FRAME.x + 12}" y1="${FRAME.y + 1.5}" x2="${FRAME.x + FRAME.w - 12}" y2="${FRAME.y + 1.5}" stroke="#d9ffe4" stroke-opacity="0.04"/>
-      <g fill="none" stroke="${GREEN}" stroke-opacity="0.18">
+      <g fill="none" stroke="${GREEN}" stroke-opacity="0.2">
         <path d="M${FRAME.x + 9} ${FRAME.y + 15} v-6 h6"/>
         <path d="M${FRAME.x + FRAME.w - 9} ${FRAME.y + 15} v-6 h-6"/>
         <path d="M${FRAME.x + 9} ${FRAME.y + FRAME.h - 15} v6 h6"/>
         <path d="M${FRAME.x + FRAME.w - 9} ${FRAME.y + FRAME.h - 15} v6 h-6"/>
       </g>
 
-      <g opacity="0">
-        <animate attributeName="opacity" from="0" to="1" begin="3.5s" dur="0.4s" fill="freeze"/>
-        ${dayLabels}
-        ${monthLabels
-          .map(
-            ({ x, text }) =>
-              `<text x="${x}" y="468" font-family="${FONT}" font-size="7.5" fill="${DIM}">${text}</text>`,
-          )
-          .join("")}
-      </g>
+      ${fade(
+        `<g font-family="${FONT}">
+          ${dayLabels}
+          ${monthLabels
+            .map(
+              ({ x, text }) =>
+                `<text x="${x}" y="480" font-size="9" fill="${DIM}">${text}</text>`,
+            )
+            .join("")}
+        </g>`,
+        2.3,
+      )}
 
       ${cells}
 
-      <rect x="${todayX - 1.5}" y="${todayY - 1.5}" width="${GRID.cell + 3}" height="${GRID.cell + 3}" rx="3" fill="none" stroke="${CYAN}" stroke-opacity="0.6">
-        <animate attributeName="stroke-opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
-      </rect>
+      <rect x="${todayX - 1.5}" y="${todayY - 1.5}" width="${GRID.cell + 3}" height="${GRID.cell + 3}" rx="3" fill="none" stroke="${CYAN}" stroke-opacity="0.75" stroke-width="1.2"/>
 
-      <g opacity="0">
-        <animate attributeName="opacity" from="0" to="1" begin="4.2s" dur="0.4s" fill="freeze"/>
-        <text x="772" y="630" font-family="${FONT}" font-size="7" fill="${CYAN}" opacity="0.75">today</text>
-        <rect x="800" y="622" width="8" height="8" rx="1.5" fill="${GREEN}" fill-opacity="0.22" stroke="${CYAN}" stroke-opacity="0.7"/>
-        <text x="856" y="630" font-family="${FONT}" font-size="7" fill="${DIM}" text-anchor="end">less</text>
-        ${legend}
-        <text x="928" y="630" font-family="${FONT}" font-size="7" fill="${DIM}">more</text>
-      </g>
+      ${fade(
+        `<g font-family="${FONT}">
+          <text x="754" y="630" font-size="9.5" fill="${CYAN}" opacity="0.85">today</text>
+          <rect x="790" y="621" width="14" height="14" rx="2" fill="${GREEN}" fill-opacity="0.18" stroke="${CYAN}" stroke-opacity="0.7"/>
+          <text x="844" y="630" font-size="9.5" fill="${MUTED}" text-anchor="end">less</text>
+          ${legend}
+          <text x="968" y="630" font-size="9.5" fill="${MUTED}" text-anchor="end">more</text>
+        </g>`,
+        3.0,
+      )}
     </g>`;
 }
