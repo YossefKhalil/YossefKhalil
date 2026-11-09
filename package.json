@@ -1,0 +1,10 @@
+{
+  "name": "yossef-profile",
+  "private": true,
+  "type": "module",
+  "description": "Animated terminal-style GitHub profile",
+  "scripts": {
+    "build": "node scripts/build-profile.mjs && node scripts/build-chips.mjs",
+    "refresh": "node scripts/fetch-contributions.mjs && npm run build"
+  }
+}
