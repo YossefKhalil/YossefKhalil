@@ -53,7 +53,7 @@
     <text x="34" y="80" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#547260"><tspan opacity="0">y<animate attributeName="opacity" from="0" to="1" begin="0.250s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">o<animate attributeName="opacity" from="0" to="1" begin="0.266s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">s<animate attributeName="opacity" from="0" to="1" begin="0.282s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">s<animate attributeName="opacity" from="0" to="1" begin="0.298s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">e<animate attributeName="opacity" from="0" to="1" begin="0.314s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">f<animate attributeName="opacity" from="0" to="1" begin="0.330s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">@<animate attributeName="opacity" from="0" to="1" begin="0.346s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">d<animate attributeName="opacity" from="0" to="1" begin="0.362s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">e<animate attributeName="opacity" from="0" to="1" begin="0.378s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">v<animate attributeName="opacity" from="0" to="1" begin="0.394s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">:<animate attributeName="opacity" from="0" to="1" begin="0.410s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">~<animate attributeName="opacity" from="0" to="1" begin="0.426s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">$<animate attributeName="opacity" from="0" to="1" begin="0.442s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">&#160;<animate attributeName="opacity" from="0" to="1" begin="0.458s" dur="0.01s" fill="freeze"/></tspan></text>
     <text x="151.60000000000002" y="80" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#4dff73"><tspan opacity="0">w<animate attributeName="opacity" from="0" to="1" begin="0.474s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">h<animate attributeName="opacity" from="0" to="1" begin="0.494s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">o<animate attributeName="opacity" from="0" to="1" begin="0.514s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">a<animate attributeName="opacity" from="0" to="1" begin="0.534s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">m<animate attributeName="opacity" from="0" to="1" begin="0.554s" dur="0.01s" fill="freeze"/></tspan><tspan opacity="0">i<animate attributeName="opacity" from="0" to="1" begin="0.574s" dur="0.01s" fill="freeze"/></tspan></text>
 
-      <rect x="157.60000000000002" y="66" width="8" height="16" fill="#4dff73">
+      <rect x="206" y="66" width="8" height="16" fill="#4dff73">
         <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.05s" begin="1s" repeatCount="indefinite"/>
       </rect>
 
@@ -82,11 +82,11 @@
     
           
     <text x="34" y="292" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="10" fill="#7fa88b" letter-spacing="1.4">STACK</text>
-    <text x="122" y="292" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c9f5d4">n8n · APIs · OpenAI · Postgres · Docker · Linux · Git</text>
+    <text x="122" y="292" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c9f5d4">n8n · APIs · Supabase · AWS · Linux · Git · Docker</text>
     
           
     <text x="34" y="318" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="10" fill="#7fa88b" letter-spacing="1.4">FOCUS</text>
-    <text x="122" y="318" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c9f5d4">AI agents · automation · backend systems</text>
+    <text x="122" y="318" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" fill="#c9f5d4">LLM fine-tuning · machine learning · automation</text>
     
 
           

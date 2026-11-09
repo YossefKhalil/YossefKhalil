@@ -27,7 +27,7 @@ export function heroPane() {
     <g>
       ${promptLine("whoami", 80, 0.25)}
 
-      <rect x="${X + 14 * CHAR + 6}" y="66" width="8" height="16" fill="${GREEN}">
+      <rect x="${X + (14 + 6) * CHAR + 4}" y="66" width="8" height="16" fill="${GREEN}">
         <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.5;1" dur="1.05s" begin="1s" repeatCount="indefinite"/>
       </rect>
 
@@ -58,8 +58,8 @@ export function heroPane() {
       ${fade(
         `<g font-family="${FONT}">
           ${detail("LANG", "python", 266, { green: true })}
-          ${detail("STACK", "n8n · APIs · OpenAI · Postgres · Docker · Linux · Git", 292)}
-          ${detail("FOCUS", "AI agents · automation · backend systems", 318)}
+          ${detail("STACK", "n8n · APIs · Supabase · AWS · Linux · Git · Docker", 292)}
+          ${detail("FOCUS", "LLM fine-tuning · machine learning · automation", 318)}
 
           ${detail("EDU", "MIS · Alexandria University", 266, { x: 640, valueX: 728 })}
           <text x="728" y="288" font-family="${FONT}" font-size="14" fill="${TEXT}">2026 · GPA 3.45</text>
